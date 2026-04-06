@@ -25,5 +25,7 @@ data class SpoolListEntry(
     val remainingFraction: Float = 0f,
     val multiColors: List<Color> = listOf(Color.Transparent, Color.Transparent),
     // Direction hint from the API (e.g., "longitudinal").
-    val multiColorsDirection: String = ""
+    val multiColorsDirection: String = "",
+    val lotNumber: String = "",
+    val location: String = ""
 )

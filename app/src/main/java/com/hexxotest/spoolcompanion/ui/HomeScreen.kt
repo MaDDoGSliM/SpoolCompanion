@@ -749,42 +749,54 @@ fun ReadTagDialog(
                 )
                 // Always show tag UID, even if the payload cannot be parsed.
                 Row {
-                    Text(text = "Tag ID:", color = labelColor)
+                    Text(text = stringResource(id = R.string.tag_id), color = labelColor)
                     Text(text = readTagInfo.tagId, modifier = Modifier.padding(start = 8.dp))
                 }
 
                 if (spool != null) {
                     // Rich details from the loaded spool list.
                     Row {
-                        Text(text = "Spool ID:", color = labelColor)
+                        Text(text = stringResource(id = R.string.spool_id), color = labelColor)
                         Text(text = "#${spool.id}", modifier = Modifier.padding(start = 8.dp))
                     }
                     Row {
-                        Text(text = "Filament ID:", color = labelColor)
+                        Text(text = stringResource(id = R.string.filament_id), color = labelColor)
                         Text(text = "#${spool.filamentId}", modifier = Modifier.padding(start = 8.dp))
                     }
                     Row {
-                        Text(text = "Material:", color = labelColor)
+                        Text(text = stringResource(id = R.string.material), color = labelColor)
                         Text(text = spool.material, modifier = Modifier.padding(start = 8.dp))
                     }
                     Row {
-                        Text(text = "Diameter:", color = labelColor)
+                        Text(text = stringResource(id = R.string.diameter), color = labelColor)
                         Text(text = "${spool.diameter} mm", modifier = Modifier.padding(start = 8.dp))
                     }
                     if (spool.totalWeight.isNotEmpty()) {
                         Row {
-                            Text(text = "Spool weight:", color = labelColor)
+                            Text(text = stringResource(id = R.string.spool_weight), color = labelColor)
                             Text(text = spool.totalWeight, modifier = Modifier.padding(start = 8.dp))
                         }
                     }
                     if (spool.remainingWeight.isNotEmpty()) {
                         val remainingPercent = (spool.remainingFraction * 100).roundToInt()
                         Row {
-                            Text(text = "Remaining:", color = labelColor)
+                            Text(text = stringResource(id = R.string.remaining), color = labelColor)
                             Text(
                                 text = "${spool.remainingWeight} (${remainingPercent}%)",
                                 modifier = Modifier.padding(start = 8.dp)
                             )
+                        }
+                    }
+                    if (spool.location.isNotBlank()) {
+                        Row {
+                            Text(text = stringResource(id = R.string.location), color = labelColor)
+                            Text(text = spool.location, modifier = Modifier.padding(start = 8.dp))
+                        }
+                    }
+                    if (spool.lotNumber.isNotBlank()) {
+                        Row {
+                            Text(text = stringResource(id = R.string.lot_number), color = labelColor)
+                            Text(text = spool.lotNumber, modifier = Modifier.padding(start = 8.dp))
                         }
                     }
                 } else {

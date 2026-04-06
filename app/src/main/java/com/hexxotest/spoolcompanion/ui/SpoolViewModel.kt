@@ -95,28 +95,30 @@ class SpoolViewModel(spoolmanUrl: String) : ViewModel() {
             SpoolListEntry(
                 id = spool.id,
                 filamentId = spool.filament.id,
-                vendorName = spool.filament.vendor.name,
-                name = spool.filament.name,
+                vendorName = spool.filament.vendor.name ?: "",
+                name = spool.filament.name ?: "",
                 // Keep the raw hex string so users can search by color code.
                 colorHex = spool.filament.color_hex,
                 color = parseSpoolmanColor(spool.filament.color_hex),
-                material = spool.filament.material,
+                material = spool.filament.material ?: "",
                 weight = convertWeightDoubleToString(spool.filament.weight),
                 diameter = spool.filament.diameter,
-                comment = spool.comment,
+                comment = spool.comment ?: "",
+                lotNumber = spool.lot_nr ?: "",
+                location = spool.location ?: "",
                 totalWeight = totalWeightLabel,
                 remainingWeight = remainingWeightLabel,
                 remainingFraction = remainingFraction,
                 // Guard against empty multi-color strings which would cause an
                 // IllegalArgumentException when converting "#" to a color.
-                multiColors = if (spool.filament.multi_color_hexes.isBlank()) {
+                multiColors = if (spool.filament.multi_color_hexes.isNullOrBlank()) {
                     emptyList()
                 } else {
                     spool.filament.multi_color_hexes.split(",")
                         .filter { it.isNotBlank() }
                         .map { parseSpoolmanColor(it) }
                 },
-                multiColorsDirection = spool.filament.multi_color_direction
+                multiColorsDirection = spool.filament.multi_color_direction ?: ""
             )
         }
     }
