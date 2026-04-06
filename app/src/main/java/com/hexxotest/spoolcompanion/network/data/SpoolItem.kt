@@ -10,7 +10,7 @@ data class SpoolItem(
     val filament: Filament,
     val id: Int = -1,
     val initial_weight: Double = 0.0,
-    val registered: String = "",
+    val registered: String? = null,
     val remaining_length: Double = 0.0,
     val remaining_weight: Double = 0.0,
     val spool_weight: Double = 0.0,

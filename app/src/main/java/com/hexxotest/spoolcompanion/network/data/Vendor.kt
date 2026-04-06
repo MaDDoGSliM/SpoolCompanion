@@ -5,9 +5,9 @@ import kotlinx.serialization.Serializable
 // Raw vendor model from Spoolman API.
 @Serializable
 data class Vendor(
-    val external_id: String = "",
+    val external_id: String? = null,
     val extra: Extra,
     val id: Int = -1,
-    val name: String = "",
-    val registered: String = ""
+    val name: String? = null,
+    val registered: String? = null
 )
