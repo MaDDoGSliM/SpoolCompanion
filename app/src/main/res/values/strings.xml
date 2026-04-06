@@ -7,4 +7,13 @@
     <string name="dismiss">Dismiss</string>
     <string name="top_app_bar">Select spool:</string>
     <string name="no_url_error">Please set Spoolman\'s URL in the settings dialog</string>
+    <string name="lot_number">Lot number:</string>
+    <string name="location">Location:</string>
+    <string name="spool_weight">Spool weight:</string>
+    <string name="remaining">Remaining:</string>
+    <string name="material">Material:</string>
+    <string name="diameter">Diameter:</string>
+    <string name="spool_id">Spool ID:</string>
+    <string name="filament_id">Filament ID:</string>
+    <string name="tag_id">Tag ID:</string>
 </resources>
